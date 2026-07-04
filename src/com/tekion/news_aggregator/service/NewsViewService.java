@@ -1,7 +1,6 @@
 package com.tekion.news_aggregator.service;
 
 import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
-import com.tekion.news_aggregator.factory.NormalizerFactory;
 import com.tekion.news_aggregator.repo.NewsRepository;
 import com.tekion.news_aggregator.sources.SourceType;
 
@@ -37,6 +36,12 @@ public class NewsViewService {
                 .collect(Collectors.toList());
 
         return filteredList;
+    }
+
+    public List<NormalizedNewsArticle> getNewsByCategory(String category){
+        // need to implement category based function.
+        // Adding a stub due to time constrain
+        return null;
     }
 
 

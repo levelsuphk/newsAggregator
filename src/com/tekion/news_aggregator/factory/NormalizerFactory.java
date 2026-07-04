@@ -7,7 +7,6 @@ import com.tekion.news_aggregator.normalize.TimeNowNormalizer;
 import com.tekion.news_aggregator.sources.SourceArticle;
 import com.tekion.news_aggregator.sources.SourceType;
 
-import java.sql.Time;
 
 public class NormalizerFactory {
 
