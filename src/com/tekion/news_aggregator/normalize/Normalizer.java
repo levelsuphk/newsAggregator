@@ -1,4 +1,9 @@
 package com.tekion.news_aggregator.normalize;
 
-public interface Normalize {
+import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
+import com.tekion.news_aggregator.sources.SourceArticle;
+
+public interface Normalizer {
+
+    public NormalizedNewsArticle normalize(SourceArticle sourceArticle);
 }
