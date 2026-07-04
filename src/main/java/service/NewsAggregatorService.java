@@ -1,30 +1,21 @@
-package com.tekion.news_aggregator.service;
+package service;
 
-import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
-import com.tekion.news_aggregator.exception.DuplicateArticleException;
-import com.tekion.news_aggregator.exception.InvalidSourceException;
-import com.tekion.news_aggregator.factory.NormalizerFactory;
-import com.tekion.news_aggregator.normalize.Normalizer;
-import com.tekion.news_aggregator.repo.NewsRepository;
-import com.tekion.news_aggregator.sources.SourceArticle;
+import entity.NormalizedNewsArticle;
+import exception.DuplicateArticleException;
+import exception.InvalidSourceException;
+import factory.NormalizerFactory;
+import normalize.Normalizer;
+import repo.NewsRepository;
+import sources.SourceArticle;
 
 public class NewsAggregatorService {
 
-    private static NewsAggregatorService service;
     NormalizerFactory normalizerFactory;
     NewsRepository newsRepository;
 
-    private NewsAggregatorService(){
+    public NewsAggregatorService(NewsRepository newsRepository){
         normalizerFactory=new NormalizerFactory();
-        newsRepository=NewsRepository.getInstance();
-    }
-
-    public static NewsAggregatorService getInstance(){
-        if(service==null){
-            service=new NewsAggregatorService();
-        }
-
-        return service;
+        this.newsRepository=newsRepository;
     }
 
     public void addArticle(SourceArticle sourceArticle) throws DuplicateArticleException{

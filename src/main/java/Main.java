@@ -1,13 +1,12 @@
-package com.tekion.news_aggregator;
-
-import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
-import com.tekion.news_aggregator.exception.DuplicateArticleException;
-import com.tekion.news_aggregator.service.NewsAggregatorService;
-import com.tekion.news_aggregator.service.NewsViewService;
-import com.tekion.news_aggregator.sources.HinduArticle;
-import com.tekion.news_aggregator.sources.SourceArticle;
-import com.tekion.news_aggregator.sources.SourceType;
-import com.tekion.news_aggregator.sources.TimeNowArticle;
+import entity.NormalizedNewsArticle;
+import exception.DuplicateArticleException;
+import repo.NewsRepository;
+import service.NewsAggregatorService;
+import service.NewsViewService;
+import sources.HinduArticle;
+import sources.SourceArticle;
+import sources.SourceType;
+import sources.TimeNowArticle;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -25,7 +24,8 @@ public class Main {
 
         //Duplicate Article
         SourceArticle timesNowArticle2=new TimeNowArticle("News 1","This is the First News",Timestamp.from(Instant.now()),"/article-url");
-        NewsAggregatorService service=NewsAggregatorService.getInstance();
+        NewsRepository newsRepository=new NewsRepository();
+        NewsAggregatorService service=new NewsAggregatorService(newsRepository);
 
         try {
             service.addArticle(hinduArticle);
@@ -36,7 +36,7 @@ public class Main {
         }
         System.out.println("----------------");
 
-        NewsViewService newsViewService=NewsViewService.getInstance();
+        NewsViewService newsViewService=new NewsViewService(newsRepository);
 
         //Sorted By Time
         System.out.println("Sorted By Time : ");

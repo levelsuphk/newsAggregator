@@ -1,23 +1,14 @@
-package com.tekion.news_aggregator.repo;
+package repo;
 
-import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
+import entity.NormalizedNewsArticle;
 
 import java.util.*;
 
 public class NewsRepository {
 
-    private static NewsRepository repository;
-
-    private NewsRepository(){
+    public NewsRepository(){
         this.newsTitleSet=new HashSet<>();
         this.newsArticleMap=new HashMap<>();
-    }
-
-    public static NewsRepository getInstance(){
-        if(repository==null){
-            repository=new NewsRepository();
-        }
-        return repository;
     }
 
     Set<String> newsTitleSet;

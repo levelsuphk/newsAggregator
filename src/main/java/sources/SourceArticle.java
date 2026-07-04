@@ -1,4 +1,4 @@
-package com.tekion.news_aggregator.sources;
+package sources;
 
 public abstract class SourceArticle {
 

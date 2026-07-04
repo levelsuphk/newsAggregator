@@ -1,4 +1,4 @@
-package com.tekion.news_aggregator.sources;
+package sources;
 
 import java.sql.Timestamp;
 import java.util.List;

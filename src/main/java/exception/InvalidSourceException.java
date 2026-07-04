@@ -1,4 +1,4 @@
-package com.tekion.news_aggregator.exception;
+package exception;
 
 public class InvalidSourceException extends Exception{
 

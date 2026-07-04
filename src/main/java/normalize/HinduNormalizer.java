@@ -1,9 +1,9 @@
-package com.tekion.news_aggregator.normalize;
+package normalize;
 
-import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
-import com.tekion.news_aggregator.sources.HinduArticle;
-import com.tekion.news_aggregator.sources.SourceArticle;
-import com.tekion.news_aggregator.sources.SourceType;
+import entity.NormalizedNewsArticle;
+import sources.HinduArticle;
+import sources.SourceArticle;
+import sources.SourceType;
 
 public class HinduNormalizer implements Normalizer{
 

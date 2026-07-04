@@ -1,11 +1,11 @@
-package com.tekion.news_aggregator.factory;
+package factory;
 
-import com.tekion.news_aggregator.exception.InvalidSourceException;
-import com.tekion.news_aggregator.normalize.HinduNormalizer;
-import com.tekion.news_aggregator.normalize.Normalizer;
-import com.tekion.news_aggregator.normalize.TimeNowNormalizer;
-import com.tekion.news_aggregator.sources.SourceArticle;
-import com.tekion.news_aggregator.sources.SourceType;
+import exception.InvalidSourceException;
+import normalize.HinduNormalizer;
+import normalize.Normalizer;
+import normalize.TimeNowNormalizer;
+import sources.SourceArticle;
+import sources.SourceType;
 
 
 public class NormalizerFactory {

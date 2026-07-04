@@ -1,0 +1,13 @@
+# IntelliJ IDEA
+
+.idea/
+*.iml
+out/
+
+# Maven build output
+
+target/
+
+# macOS
+
+.DS_Store

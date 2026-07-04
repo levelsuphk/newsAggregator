@@ -1,36 +1,32 @@
-package com.tekion.news_aggregator.service;
+package service;
 
-import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
-import com.tekion.news_aggregator.repo.NewsRepository;
-import com.tekion.news_aggregator.sources.SourceType;
+import entity.NormalizedNewsArticle;
+import repo.NewsRepository;
+import sources.SourceType;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class NewsViewService {
 
-    private static NewsViewService newsViewService;
     NewsRepository newsRepository;
-    private NewsViewService(){
-        this.newsRepository=NewsRepository.getInstance();
-    }
 
-    public static NewsViewService getInstance(){
-        if(newsViewService==null){
-            newsViewService=new NewsViewService();
-        }
-        return newsViewService;
+    public NewsViewService(NewsRepository newsRepository){
+        this.newsRepository=newsRepository;
     }
 
     public List<NormalizedNewsArticle> getNewsByTime(){
-        List<NormalizedNewsArticle> newsArticleList=newsRepository.getNormalizedNewsList();
+        List<NormalizedNewsArticle> newsArticleList =
+                new ArrayList<>(newsRepository.getNormalizedNewsList());
         newsArticleList.sort(Comparator.comparing(NormalizedNewsArticle::getPublishedTime).reversed());
         return newsArticleList;
     }
 
     public List<NormalizedNewsArticle> getNewsBySource(SourceType sourceType){
-        List<NormalizedNewsArticle> newsArticleList=newsRepository.getNormalizedNewsList();
+        List<NormalizedNewsArticle> newsArticleList =
+                new ArrayList<>(newsRepository.getNormalizedNewsList());
         List<NormalizedNewsArticle> filteredList = newsArticleList.stream()
                 .filter(article -> article.getSourceType() == sourceType)
                 .collect(Collectors.toList());

@@ -1,9 +1,9 @@
-package com.tekion.news_aggregator.normalize;
+package normalize;
 
-import com.tekion.news_aggregator.entity.NormalizedNewsArticle;
-import com.tekion.news_aggregator.sources.SourceArticle;
-import com.tekion.news_aggregator.sources.SourceType;
-import com.tekion.news_aggregator.sources.TimeNowArticle;
+import entity.NormalizedNewsArticle;
+import sources.SourceArticle;
+import sources.SourceType;
+import sources.TimeNowArticle;
 
 public class TimeNowNormalizer implements Normalizer{
 

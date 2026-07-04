@@ -1,23 +1,18 @@
-package com.tekion.news_aggregator.sources;
+package entity;
+
+import sources.SourceType;
 
 import java.sql.Timestamp;
 import java.util.List;
 
-public class TimeNowArticle extends SourceArticle{
-
+public class NormalizedNewsArticle {
     String title;
     String summary;
     Timestamp publishedTime;
     String articleURL;
     List<String> category;
+    SourceType sourceType;
 
-    public TimeNowArticle(String title, String summary, Timestamp publishedTime, String articleURL) {
-        super(SourceType.TIMES_NOW);
-        this.title = title;
-        this.summary = summary;
-        this.publishedTime = publishedTime;
-        this.articleURL = articleURL;
-    }
 
     public String getTitle() {
         return title;
@@ -57,5 +52,25 @@ public class TimeNowArticle extends SourceArticle{
 
     public void setCategory(List<String> category) {
         this.category = category;
+    }
+
+    public void setSourceType(SourceType sourceType){
+        this.sourceType=sourceType;
+    }
+
+    public SourceType getSourceType(){
+        return this.sourceType;
+    }
+
+    @Override
+    public String toString() {
+        return "NormalizedNewsArticle{" +
+                "title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
+                ", publishedTime=" + publishedTime +
+                ", articleURL='" + articleURL + '\'' +
+                ", category=" + category +
+                ", sourceType=" + sourceType +
+                '}';
     }
 }
